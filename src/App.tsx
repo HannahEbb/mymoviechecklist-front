@@ -1,24 +1,28 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from 'react';
-import './App.css';
+import { useState } from "react";
+import UserContext from "./UserContext";
+import SigninScreen from "./components/1.Signin/SigninScreen";
+import SignupScreen from "./components/2.Signup/SignupScreen";
+import Home from "./components/3.Home/Home";
+import AdFilmScreen from "./components/4.AddFilm/AdFilmScreen";
 
-function App() {
+const App: React.FC = () => {
+
+  const [token, setToken] = useState<string | null>("");
+  const [nome, setNome] = useState<string | null>("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h3>Hello World</h3>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ token, setToken, nome, setNome }}>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<SigninScreen />} />
+            <Route path="/sign-up" element={<SignupScreen />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/deposits" element={<AdFilmScreen />} />
+        </Routes>
+    </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Saira+Stencil+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    --cor-fundo-tela: #8C3EBE;
+    --cor-roxo-claro: #A328D6;
+    --cor-branco: #FFFFFF;
+    --cor-preto:  #000000; 
+    --cor-verde: #03AC00;
+    --cor-vermelho: #C70000;
+    --cor-cinza-claro: #C6C6C6;
+    --cor-cinza-escuro: #7E7E7E;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--cor-fundo-tela);
+    color: var(--cor-branco);
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
+  }
