@@ -6,18 +6,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components';
 
-type UserContextTypes = {
-    token: string | null,
-    nome: string | null,
-    setToken: React.Dispatch<React.SetStateAction<string>>,
-    setNome: React.Dispatch<React.SetStateAction<string>>
-  }
-
 export default function AdFilmScreen () {
 
     const { token } = useContext(UserContext);
-    const [valor, setValor] = useState("");
-    const [descricao, setDescricao] = useState("");
+    const [name, setName] = useState<string>("");
+    const [streaming, setStreaming] = useState<string>("");
+    const [genre, setGenre] = useState<string>("");
 
     const navigate = useNavigate();
 
@@ -25,9 +19,9 @@ export default function AdFilmScreen () {
         event.preventDefault(); 
 
         const entrada = {
-            entry: valor,
-            description: descricao,
-            type: "entrada"
+            name: name,
+            streaming:streaming,
+            genre: genre
         }
 
         const config = {
@@ -49,12 +43,13 @@ export default function AdFilmScreen () {
     return (
         <Container>
         <Header>
-           <h1>Nova entrada</h1>
+           <h1>Adicionar novo filme</h1>
         </Header>
         <form onSubmit={novaEntrada}>
-                <input type="text" value={valor} onChange={e => setValor(e.target.value)} placeholder="Valor"></input>
-                <input type="text" value={descricao} onChange={e => setDescricao(e.target.value)} placeholder="Descrição"></input>
-                <button type="submit">Salvar entrada</button>
+                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Nome"></input>
+                <input type="text" value={streaming} onChange={e => setStreaming(e.target.value)} placeholder="Streaming"></input>
+                <input type="text" value={genre} onChange={e => setGenre(e.target.value)} placeholder="Gênero"></input>
+                <button type="submit">Salvar novo filme</button>
             </form>
         </Container>
     )

@@ -41,7 +41,7 @@ export default function Home() {
            <div><h1>Olá, { nome }</h1></div>
            <Link to='/'><div><img src={ sair } width="23px" height="24px"/></div></Link>
         </Header>
-        <Transacoes>
+        <Films>
             {films.length ? films.map( film => { return <Film key={film.id}
                                                                 name={film.name} 
                                                                 status={film.status} 
@@ -49,9 +49,9 @@ export default function Home() {
                                                                 genre={film.genre}
                                                                 date={film.createdAt}/>})
             : <p>Não há registros de entrada ou saída</p>}
-        </Transacoes>
+        </Films>
         <Rotas>
-            <Link style={{textDecoration: 'none'}} to='/deposits'>
+            <Link style={{textDecoration: 'none'}} to='/new'>
                 <div>
                     <p>Nova entrada</p>
                 </div>
@@ -106,7 +106,7 @@ const Header = styled.div`
     }
 `
 
-const Transacoes = styled.div`
+const Films = styled.div`
     width: 326px;
     height: 446px;
     background: var(--cor-branco);

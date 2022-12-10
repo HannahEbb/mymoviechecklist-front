@@ -1,6 +1,3 @@
-import React from 'react';
-import { Films } from "../../models/models"
-
 interface Props {
     name: string,
     status: boolean,
@@ -8,7 +5,6 @@ interface Props {
     genre: string,
     date: string
 }
-
 
 export default function Film ({ name, status, stars, genre, date} : Props) {
 

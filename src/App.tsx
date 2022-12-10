@@ -5,7 +5,7 @@ import UserContext from "./UserContext";
 import SigninScreen from "./components/1.Signin/SigninScreen";
 import SignupScreen from "./components/2.Signup/SignupScreen";
 import Home from "./components/3.Home/Home";
-import AdFilmScreen from "./components/4.AddFilm/AdFilmScreen";
+import AddFilmScreen from "./components/4.AddFilm/AddFilmScreen";
 
 const App: React.FC = () => {
 
@@ -19,7 +19,7 @@ const App: React.FC = () => {
             <Route path="/" element={<SigninScreen />} />
             <Route path="/sign-up" element={<SignupScreen />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/deposits" element={<AdFilmScreen />} />
+            <Route path="/new" element={<AddFilmScreen />} />
         </Routes>
     </BrowserRouter>
     </UserContext.Provider>
