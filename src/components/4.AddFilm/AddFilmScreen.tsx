@@ -5,6 +5,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
 
 export default function AdFilmScreen () {
 
@@ -30,7 +33,7 @@ export default function AdFilmScreen () {
             }
         }
        
-        const promise = axios.post('https://proejto13-my-wallet-back.herokuapp.com/transacoes', entrada, config);
+        const promise = axios.post(`${process.env.LINK}`, entrada, config);
         promise.then(res => {
             console.log(res);
             navigate('/home')});

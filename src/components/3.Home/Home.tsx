@@ -7,6 +7,9 @@ import styled from 'styled-components';
 import sair from "../../assets/Vector.png"; 
 import Film from "./Film";
 import { Films } from "../../models/models"
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
 
 export default function Home() {
 
@@ -15,7 +18,7 @@ export default function Home() {
 
     useEffect(() => {
     
-        const URL = 'https://proejto13-my-wallet-back.herokuapp.com/transacoes';
+        const URL = `${process.env.LINK}`;
 
         const config = {
             headers: {
