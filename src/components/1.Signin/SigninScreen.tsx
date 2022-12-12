@@ -5,9 +5,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
 
 
-export default function SigninScreen () {
+const SigninScreen: React.FC = () => {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -15,7 +18,7 @@ export default function SigninScreen () {
 
      const navigate = useNavigate();
 
-     function fazerLogin (event) {
+     function fazerLogin (event: React.FormEvent) {
          event.preventDefault(); 
 
          const login = {
@@ -23,7 +26,7 @@ export default function SigninScreen () {
              password: senha
          }
         
-         const promise = axios.post('https://proejto13-my-wallet-back.herokuapp.com/login', login);
+         const promise = axios.post(`${process.env.LINK}/signin`, login);
          promise.then(res => {
              setToken(res.data.token);
              setNome(res.data.nome);
@@ -51,6 +54,9 @@ export default function SigninScreen () {
         </Container>
     );
 }
+
+export default SigninScreen;
+
 
 const Container = styled.div`
     width: 100%;

@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components';
+import dotenv from 'dotenv';
 
-export default function SignupScreen () {
+dotenv.config({ path: '.env' });
+
+const SignupScreen: React.FC = () => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -14,7 +17,7 @@ export default function SignupScreen () {
     const navigate = useNavigate();
 
 
-     function fazerCadastro (event) {
+     function fazerCadastro (event: React.FormEvent) {
          event.preventDefault();
         
          const signup = {
@@ -24,7 +27,7 @@ export default function SignupScreen () {
              confirm: confirmaSenha
          }
         
-         const promise = axios.post('https://proejto13-my-wallet-back.herokuapp.com/cadastro', signup);
+         const promise = axios.post(`${process.env.LINK}/signup`, signup);
             promise.then(res => {
                 console.log(res.data);
                 navigate('/')}); 
@@ -52,6 +55,9 @@ export default function SignupScreen () {
     </Container>
     );
 }
+
+export default SignupScreen;
+
 
 const Container = styled.div`
     width: 100%;

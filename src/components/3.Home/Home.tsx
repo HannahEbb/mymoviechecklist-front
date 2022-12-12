@@ -11,14 +11,14 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env' });
 
-export default function Home() {
+const Home: React.FC = () => {
 
     const { nome, token } = useContext(UserContext);
     const [films, setFilms] = useState<Films[]>([]);
 
     useEffect(() => {
     
-        const URL = `${process.env.LINK}`;
+        const URL = `${process.env.LINK}/films`;
 
         const config = {
             headers: {
@@ -63,6 +63,9 @@ export default function Home() {
         </Container>
     )
 };
+
+export default Home;
+
 
 const Container = styled.div`
     width: 100%;

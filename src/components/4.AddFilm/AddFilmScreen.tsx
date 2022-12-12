@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: '.env' });
 
-export default function AdFilmScreen () {
+const AddFilmScreen: React.FC = () => {
 
     const { token } = useContext(UserContext);
     const [name, setName] = useState<string>("");
@@ -33,7 +33,7 @@ export default function AdFilmScreen () {
             }
         }
        
-        const promise = axios.post(`${process.env.LINK}`, entrada, config);
+        const promise = axios.post(`${process.env.LINK}/films`, entrada, config);
         promise.then(res => {
             console.log(res);
             navigate('/home')});
@@ -57,6 +57,9 @@ export default function AdFilmScreen () {
         </Container>
     )
 };
+
+export default AddFilmScreen;
+
 
 const Container = styled.div`
     width: 100%;
