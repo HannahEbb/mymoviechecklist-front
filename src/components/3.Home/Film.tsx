@@ -6,7 +6,7 @@ interface Props {
     date: string
 }
 
-const Film: React.FC<Props> = ({ name, status, stars, genre, date} : Props) => {
+const Film: React.FC<Props> = ({ name, status, stars, genre, date}) => {
 
     return(
         <div>
